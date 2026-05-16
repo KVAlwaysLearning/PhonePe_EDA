@@ -193,10 +193,10 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                     st.plotly_chart(fig, use_container_width=True)
                 with c3:
                    st.markdown("##### 4.3 Multivariate: Revenue Trajectory Top 5 [cite: 100, 101]")
-                    top5_rev = sub_df.groupby('State')['Total_Revenue'].sum().nlargest(5).index
-                    f_df = sub_df[sub_df['State'].isin(top5_rev)].groupby(['Year', 'State'])['Total_Revenue'].sum().reset_index()
-                    fig = px.line(f_df, x='Year', y='Total_Revenue', color='State', markers=True)
-                    st.plotly_chart(fig, use_container_width=True)
+                   top5_rev = sub_df.groupby('State')['Total_Revenue'].sum().nlargest(5).index
+                   f_df = sub_df[sub_df['State'].isin(top5_rev)].groupby(['Year', 'State'])['Total_Revenue'].sum().reset_index()
+                   fig = px.line(f_df, x='Year', y='Total_Revenue', color='State', markers=True)
+                   st.plotly_chart(fig, use_container_width=True)
 
         # ==========================================
         # CASE STUDY 5: PLATFORM ENGAGEMENT
