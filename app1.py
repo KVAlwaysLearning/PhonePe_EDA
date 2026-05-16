@@ -292,15 +292,15 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                     st.plotly_chart(fig, use_container_width=True)
                 with c2:
                    st.markdown("##### 8.2 Bivariate: Growth Velocities [cite: 113, 114]")
-                    reg_y = sub_df.groupby('Year')['New_Registrations'].sum().reset_index()
-                    fig = px.bar(reg_y, x='Year', y='New_Registrations', color_discrete_sequence=['#2ca02c'])
+                   reg_y = sub_df.groupby('Year')['New_Registrations'].sum().reset_index()
+                   fig = px.bar(reg_y, x='Year', y='New_Registrations', color_discrete_sequence=['#2ca02c'])
                     st.plotly_chart(fig, use_container_width=True)
                 with c3:
-                    st.markdown("##### 8.3 Multivariate: Cohort Cyclicity [cite: 114]")
-                    reg_yq = sub_df.groupby(['Year', 'Quarter'])['New_Registrations'].sum().reset_index()
-                    reg_yq['Quarter'] = reg_yq['Quarter'].astype(str)
-                    fig = px.line(reg_yq, x='Year', y='New_Registrations', color='Quarter', markers=True)
-                    st.plotly_chart(fig, use_container_width=True)
+                   st.markdown("##### 8.3 Multivariate: Cohort Cyclicity [cite: 114]")
+                   reg_yq = sub_df.groupby(['Year', 'Quarter'])['New_Registrations'].sum().reset_index()
+                   reg_yq['Quarter'] = reg_yq['Quarter'].astype(str)
+                   fig = px.line(reg_yq, x='Year', y='New_Registrations', color='Quarter', markers=True)
+                   st.plotly_chart(fig, use_container_width=True)
 
         # ==========================================
         # CASE STUDY 9: STRATEGIC PROTECTION
@@ -317,7 +317,7 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                     fig = px.histogram(sub_df, x='Insurance_Count', marginal='violin', nbins=20)
                     st.plotly_chart(fig, use_container_width=True)
                 with c2:
-                    ]st.markdown("##### 9.2 Bivariate: Volume Leaders (Top 15) [cite: 114, 115]")
+                    st.markdown("##### 9.2 Bivariate: Volume Leaders (Top 15) [cite: 114, 115]")
                     top15_st = sub_df.groupby('State')['Insurance_Count'].sum().sort_values(ascending=False).head(15).reset_index()
                     fig = px.bar(top15_st, x='State', y='Insurance_Count', color='Insurance_Count', color_continuous_scale='electric')
                     st.plotly_chart(fig, use_container_width=True)
