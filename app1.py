@@ -210,18 +210,18 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                 c1, c2, c3 = st.columns(3)
                 with c1:
                    st.markdown("##### 5.1 Univariate: Engagement Profile [cite: 101-104]")
-                    st_eng = sub_df.groupby('State')['App_Opens'].sum().sort_values(ascending=False).reset_index()
-                    fig = px.bar(st_eng, x='State', y='App_Opens', color='App_Opens', color_continuous_scale='oranges')
-                    st.plotly_chart(fig, use_container_width=True)
+                   st_eng = sub_df.groupby('State')['App_Opens'].sum().sort_values(ascending=False).reset_index()
+                   fig = px.bar(st_eng, x='State', y='App_Opens', color='App_Opens', color_continuous_scale='oranges')
+                   st.plotly_chart(fig, use_container_width=True)
                 with c2:
-                    st.markdown("##### 5.2 Bivariate: Base to Activity Correlation [cite: 104]")
-                    fig = px.scatter(sub_df, x='Users', y='App_Opens', opacity=0.6, trendline="ols", trendline_color_override="red")
-                    st.plotly_chart(fig, use_container_width=True)
+                   st.markdown("##### 5.2 Bivariate: Base to Activity Correlation [cite: 104]")
+                   fig = px.scatter(sub_df, x='Users', y='App_Opens', opacity=0.6, trendline="ols", trendline_color_override="red")
+                   st.plotly_chart(fig, use_container_width=True)
                 with c3:
-                    st.markdown("##### 5.3 Multivariate: Spatiotemporal Intensity [cite: 104, 105]")
-                    h_map = sub_df.groupby(['State', 'Year'])['App_Opens'].mean().reset_index()
-                    fig = px.density_heatmap(h_map, x='Year', y='State', z='App_Opens', color_continuous_scale='blues')
-                    st.plotly_chart(fig, use_container_width=True)
+                   st.markdown("##### 5.3 Multivariate: Spatiotemporal Intensity [cite: 104, 105]")
+                   h_map = sub_df.groupby(['State', 'Year'])['App_Opens'].mean().reset_index()
+                   fig = px.density_heatmap(h_map, x='Year', y='State', z='App_Opens', color_continuous_scale='blues')
+                   st.plotly_chart(fig, use_container_width=True)
 
         # ==========================================
         # CASE STUDY 6: INSURANCE INGESTION
