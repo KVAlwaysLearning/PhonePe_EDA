@@ -112,7 +112,7 @@ def slice_dataframe(dataframe, year_col='Year', state_col='State', quarter_col='
     return working_df
 
 # --- MAIN PAGE SUBSET RENDERING ENGINE ---
-st.title("🔮 PhonePe Pulse Ecosystem Master Dashboard")
+st.title("🔮 PhonePe Pulse Ecosystem Master Dashboard", color: #5d2e8e)
 st.write(f"🔬 Evaluating Case: **{domain_selector}**")
 st.markdown("---")
         
