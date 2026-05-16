@@ -155,28 +155,35 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                 st.warning("No data found for the current filter configuration.")
             else:
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 2.1 Univariate: Brand User Distribution")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    2.1 Univariate: Brand User Distribution
+                    </h3></div>""",unsafe_allow_html=True)
                     b_dist = sub_df.groupby('Brand')['Count'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(b_dist, x='Brand', y='Count', color='Brand', height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
+                    
 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 2.2 Bivariate: Brand Market Share Stability")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    2.2 Bivariate: Brand Market Share Stability
+                    </h3></div>""",unsafe_allow_html=True)
                     s_data = sub_df.groupby(['Year', 'Brand'])['Percentage'].mean().reset_index()
                     fig = px.line(s_data, x='Year', y='Percentage', color='Brand', markers=True, height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 2.3 Multivariate: Segmented Yearly Growth")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    2.3 Multivariate: Segmented Yearly Growth
+                    </h3></div>""",unsafe_allow_html=True)
                     g_data = sub_df.groupby(['Year', 'Brand'])['Count'].sum().reset_index()
                     fig = px.bar(g_data, x='Year', y='Count', color='Brand', barmode='stack', height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
         # ==========================================
         # CASE STUDY 3: BASE INSURANCE
@@ -188,29 +195,35 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                 st.warning("No data found matching specifications.")
             else:
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 3.1 Univariate: Policy Count Density")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    3.1 Univariate: Policy Count Density
+                    </h3></div>""",unsafe_allow_html=True)
                     fig = px.histogram(sub_df, x='Count', marginal='rug', color_discrete_sequence=['#ff7f0e'], height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 3.2 Bivariate: Cumulative Adoption by State")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    3.2 Bivariate: Cumulative Adoption by State
+                    </h3></div>""",unsafe_allow_html=True)
                     st_pols = sub_df.groupby('State')['Count'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(st_pols, x='State', y='Count', color='Count', color_continuous_scale='plasma', height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
-
+                    
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 3.3 Multivariate: Top 10 Premium Trends")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    3.3 Multivariate: Top 10 Premium Trends
+                    </h3></div>""",unsafe_allow_html=True)
                     top10_st = sub_df.groupby('State')['Amount'].sum().nlargest(10).index
                     f_df = sub_df[sub_df['State'].isin(top10_st)].groupby(['Year', 'State'])['Amount'].sum().reset_index()
                     fig = px.bar(f_df, x='Year', y='Amount', color='State', barmode='group', height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
-
+                    
         # ==========================================
         # CASE STUDY 4: MARKET EXPANSION
         # ==========================================
@@ -221,29 +234,35 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                 st.warning("Zero row structures match the active matrix.")
             else:
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 4.1 Univariate: Market Size by State")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    4.1 Univariate: Market Size by State
+                    </h3></div>""",unsafe_allow_html=True)
                     st_rev = sub_df.groupby('State')['Amount'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(st_rev, x='State', y='Amount', color='Amount', color_continuous_scale='viridis', height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 4.2 Bivariate: National Scale Timeline")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    4.2 Bivariate: National Scale Timeline
+                    </h3></div>""",unsafe_allow_html=True)
                     yr_rev = sub_df.groupby('Year')['Amount'].sum().reset_index()
                     fig = px.line(yr_rev, x='Year', y='Amount', markers=True, height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 4.3 Multivariate: Revenue Trajectory Top 5")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    4.3 Multivariate: Revenue Trajectory Top 5
+                    </h3></div>""",unsafe_allow_html=True)
                     top5_rev = sub_df.groupby('State')['Amount'].sum().nlargest(5).index
                     f_df = sub_df[sub_df['State'].isin(top5_rev)].groupby(['Year', 'State'])['Amount'].sum().reset_index()
                     fig = px.line(f_df, x='Year', y='Amount', color='State', markers=True, height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
         # ==========================================
         # CASE STUDY 5: PLATFORM ENGAGEMENT
@@ -262,28 +281,35 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                     st.error("Could not find an engagement column (Count or AppOpens) in map_user dataset.")
                 else:
                     with st.container():
-                        st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                        st.markdown("### 5.1 Univariate: Engagement Profile")
+                        st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                        box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                        <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                        5.1 Univariate: Engagement Profile
+                        </h3></div>""",unsafe_allow_html=True)
                         st_eng = sub_df.groupby('State')[eng_col].sum().sort_values(ascending=False).reset_index()
                         fig = px.bar(st_eng, x='State', y=eng_col, color=eng_col, color_continuous_scale='oranges', height=500)
                         st.plotly_chart(fig, use_container_width=True)
-                        st.markdown('</div>', unsafe_allow_html=True)
 
                     with st.container():
-                        st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                        st.markdown("### 5.2 Bivariate: Regional Distribution Over Time")
+                        st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                        box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                        <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                        5.2 Bivariate: Regional Distribution Over Time
+                        </h3></div>""",unsafe_allow_html=True)
                         yr_eng = sub_df.groupby('Year')[eng_col].sum().reset_index()
                         fig = px.bar(yr_eng, x='Year', y=eng_col, height=500)
                         st.plotly_chart(fig, use_container_width=True)
-                        st.markdown('</div>', unsafe_allow_html=True)
 
                     with st.container():
-                        st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                        st.markdown("### 5.3 Multivariate: Spatiotemporal Intensity")
+                        st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                        box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                        <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                        5.3 Multivariate: Spatiotemporal Intensity
+                        </h3></div>""",unsafe_allow_html=True)
                         h_map = sub_df.groupby(['State', 'Year'])[eng_col].mean().reset_index()
                         fig = px.density_heatmap(h_map, x='Year', y='State', z=eng_col, color_continuous_scale='blues', height=500)
                         st.plotly_chart(fig, use_container_width=True)
-                        st.markdown('</div>', unsafe_allow_html=True)
+                       
         # ==========================================
         # CASE STUDY 6: INSURANCE INGESTION
         # ==========================================
@@ -294,29 +320,35 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                 st.warning("No row data maps to filters.")
             else:
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 6.1 Univariate: Penetration Scaler")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    6.1 Univariate: Penetration Scaler
+                    </h3></div>""",unsafe_allow_html=True)
                     ins_scale = sub_df.groupby('State')['Count'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(ins_scale, x='State', y='Count', color='Count', color_continuous_scale='magma', height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 6.2 Bivariate: Elite Top 15 Analysis")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    6.2 Bivariate: Elite Top 15 Analysis
+                    </h3></div>""",unsafe_allow_html=True)
                     top15_ins = sub_df.groupby('State')['Count'].sum().nlargest(15).reset_index()
                     fig = px.bar(top15_ins, x='State', y='Count', color_discrete_sequence=['#471354'], height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 6.3 Multivariate: Top 5 Quarterly Flow")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    6.3 Multivariate: Top 5 Quarterly Flow
+                    </h3></div>""",unsafe_allow_html=True)
                     top5_ins = sub_df.groupby('State')['Count'].sum().nlargest(5).index
                     f_df = sub_df[sub_df['State'].isin(top5_ins)].groupby(['Quarter', 'State'])['Count'].sum().reset_index()
                     fig = px.bar(f_df, x='Quarter', y='Count', color='State', barmode='group', height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
         # ==========================================
         # CASE STUDY 7: GEOGRAPHIC HOTSPOTS
@@ -328,28 +360,34 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                 st.warning("No regional records parsed.")
             else:
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 7.1 Univariate: Macro Value Hotspots")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    7.1 Univariate: Macro Value Hotspots
+                    </h3></div>""",unsafe_allow_html=True)
                     st_perf = sub_df.groupby('State')['Amount'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(st_perf, x='State', y='Amount', color='Amount', color_continuous_scale='viridis', height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 7.2 Bivariate: Volume vs Value Velocity")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    7.2 Bivariate: Volume vs Value Velocity
+                    </h3></div>""",unsafe_allow_html=True)
                     fig = px.scatter(sub_df, x='Count', y='Amount', opacity=0.4, color_discrete_sequence=['green'], height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 7.3 Multivariate: Annual Top 10 Retention")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    7.3 Multivariate: Annual Top 10 Retention
+                    </h3></div>""",unsafe_allow_html=True)
                     top10_st = sub_df.groupby('State')['Amount'].sum().nlargest(10).index
                     f_df = sub_df[sub_df['State'].isin(top10_st)].groupby(['State', 'Year'])['Amount'].sum().reset_index()
                     fig = px.bar(f_df, x='State', y='Amount', color='Year', barmode='group', height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
         # ==========================================
         # CASE STUDY 8: USER ONBOARDING
@@ -364,28 +402,34 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                 user_count_col = 'Count' if 'Count' in sub_df.columns else ('RegisteredUsers' if 'RegisteredUsers' in sub_df.columns else sub_df.columns[-1])
                 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 8.1 Univariate: Registration Density")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    8.1 Univariate: Registration Density
+                    </h3></div>""",unsafe_allow_html=True)
                     fig = px.histogram(sub_df, x=user_count_col, nbins=20, color_discrete_sequence=['orange'], height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 8.2 Bivariate: Growth Velocities")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    8.2 Bivariate: Growth Velocities
+                    </h3></div>""",unsafe_allow_html=True)
                     reg_y = sub_df.groupby('Year')[user_count_col].sum().reset_index()
                     fig = px.bar(reg_y, x='Year', y=user_count_col, color_discrete_sequence=['#2ca02c'], height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 8.3 Multivariate: Cohort Cyclicity")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    8.3 Multivariate: Cohort Cyclicity
+                    </h3></div>""",unsafe_allow_html=True)
                     reg_yq = sub_df.groupby(['Year', 'Quarter'])[user_count_col].sum().reset_index()
                     reg_yq['Quarter'] = reg_yq['Quarter'].astype(str)
                     fig = px.line(reg_yq, x='Year', y=user_count_col, color='Quarter', markers=True, height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
         # ==========================================
         # CASE STUDY 9: STRATEGIC PROTECTION
@@ -397,29 +441,35 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                 st.warning("Strategic security trace is null for current setup.")
             else:
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 9.1 Univariate: Hotspot Density Profile")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    9.1 Univariate: Hotspot Density Profile
+                    </h3></div>""",unsafe_allow_html=True)
                     fig = px.histogram(sub_df, x='Count', marginal='violin', nbins=20, height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
-
+                    
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 9.2 Bivariate: Volume Leaders (Top 15)")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    9.2 Bivariate: Volume Leaders (Top 15)
+                    </h3></div>""",unsafe_allow_html=True)
                     top15_st = sub_df.groupby('State')['Count'].sum().sort_values(ascending=False).head(15).reset_index()
                     fig = px.bar(top15_st, x='State', y='Count', color='Count', color_continuous_scale='electric', height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 9.3 Multivariate: Quarterly Box Spreads")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    9.3 Multivariate: Quarterly Box Spreads
+                    </h3></div>""",unsafe_allow_html=True)
                     top5_st = sub_df.groupby('State')['Count'].sum().nlargest(5).index
                     f_df = sub_df[sub_df['State'].isin(top5_st)]
                     f_df['Quarter'] = f_df['Quarter'].astype(str)
                     fig = px.box(f_df, x='State', y='Count', color='Quarter', height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
 
 # --- GLOBAL FEEDBACK LAYER ---
 st.markdown("---")
