@@ -15,10 +15,19 @@ st.set_page_config(
 # --- PHONEPE STYLING & DESIGN UPGRADE ---
 st.markdown("""
     <style>
-    .main { background-color: #f4f6f9; }
-    .stMetric { background-color: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e1e4e8; }
-    h1, h2, h3 { color: #5d2e8e; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    .chart-container { background-color: #ffffff; padding: 25px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #e6ebf1; box-shadow: 0 2px 4px rgba(0,0,0,0.01); }
+    /* Gradient background matching PhonePe's smooth app transition tones */
+    .stApp {
+        background: linear-gradient(135deg, #fbf9fe 0%, #f4eefa 100%);
+    }
+    
+    /* Ensure your custom title container stays crisp over the new background */
+    .chart-container { 
+        background-color: #ffffff; 
+        padding: 25px; 
+        border-radius: 12px; 
+        border: 1px solid #e6ebf1; 
+        box-shadow: 0 4px 12px rgba(93, 46, 142, 0.03); 
+    }
     </style>
     """, unsafe_allow_html=True)
 
