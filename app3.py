@@ -52,7 +52,7 @@ dfs = load_all_pulse_tables()
 
 # --- GLOBAL FILTER SIDEBAR CONTROL ---
 st.sidebar.image("https://raw.githubusercontent.com/KVAlwaysLearning/PhonePe_EDA/main/PhonePe_logo.png", width=160)
-st.sidebar.markdown("### Custom Dataset Subset Filtering")
+st.sidebar.markdown("### Custom Dataset Subset Filtering", color='#5d2e8e')
 
 # 1. Multi-Select for Years
 available_years = sorted(dfs['aggregated_transaction']['Year'].unique().astype(str).tolist(), reverse=True)
