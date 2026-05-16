@@ -128,19 +128,22 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
                     <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
-                    ### 1.2 Bivariate: Mix by Payment Type
+                    1.2 Bivariate: Mix by Payment Type
                     </h3></div>""",unsafe_allow_html=True)
                     m_data = sub_df.groupby('Type')['Count'].sum().reset_index()
                     fig = px.pie(m_data, values='Count', names='Type', hole=0.3, height=500)
                     st.plotly_chart(fig, use_container_width=True)       
 
                 with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 1.3 Multivariate: Value Trends Over Time")
+                    st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    1.3 Multivariate: Value Trends Over Time
+                    </h3></div>""",unsafe_allow_html=True)
                     t_data = sub_df.groupby(['Year', 'Type'])['Amount'].sum().reset_index()
                     fig = px.line(t_data, x='Year', y='Amount', color='Type', markers=True, height=500)
                     st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
+                
 
         # ==========================================
         # CASE STUDY 2: HARDWARE ECOSYSTEM
