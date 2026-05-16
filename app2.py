@@ -113,12 +113,9 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                 st.warning("No dynamic payload matches these dimensional parameters.")
             else:
                 with st.container():
-                    st.markdown(f"""
-                    <div class="chart-container">
-                    <h3 style="margin-bottom: 15px;">1.1 Univariate: Transaction Frequency</h3>
-                    </div>
-                    """, 
-                    unsafe_allow_html=True)
+                    st.markdown(f"""<div class="chart-container">
+                    <h3 style="margin-bottom: 5px;">1.1 Univariate: Transaction Frequency</h3>
+                    </div>""",unsafe_allow_html=True)
                     #st.markdown("### 1.1 Univariate: Transaction Frequency")
                     #v_data = sub_df.groupby('State')['Count'].sum().sort_values(ascending=False).reset_index()
                     #fig = px.bar(v_data, x='State', y='Count', color='Count', color_continuous_scale='purples', height=500)
