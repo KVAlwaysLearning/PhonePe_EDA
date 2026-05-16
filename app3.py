@@ -135,7 +135,7 @@ if domain_selector == "Case 1: Core Payments":
         # ==========================================
         # CASE STUDY 2: HARDWARE ECOSYSTEM
         # ==========================================
-        elif domain_selector == "Case 2: Hardware Ecosystem":
+elif domain_selector == "Case 2: Hardware Ecosystem":
             sub_df = slice_dataframe(dfs['aggregated_user'])
             
             if sub_df.empty:
@@ -175,7 +175,7 @@ if domain_selector == "Case 1: Core Payments":
         # ==========================================
         # CASE STUDY 3: BASE INSURANCE
         # ==========================================
-        elif domain_selector == "Case 3: Base Insurance":
+elif domain_selector == "Case 3: Base Insurance":
             sub_df = slice_dataframe(dfs['aggregated_insurance'])
             
             if sub_df.empty:
@@ -214,7 +214,7 @@ if domain_selector == "Case 1: Core Payments":
         # ==========================================
         # CASE STUDY 4: MARKET EXPANSION
         # ==========================================
-        elif domain_selector == "Case 4: Market Expansion":
+elif domain_selector == "Case 4: Market Expansion":
             sub_df = slice_dataframe(dfs['map_transaction'])
             
             if sub_df.empty:
@@ -254,7 +254,7 @@ if domain_selector == "Case 1: Core Payments":
         # ==========================================
         # CASE STUDY 5: PLATFORM ENGAGEMENT
         # ==========================================
-        elif domain_selector == "Case 5: Platform Engagement":
+elif domain_selector == "Case 5: Platform Engagement":
             sub_df = slice_dataframe(dfs['map_user'])
             
             if sub_df.empty:
@@ -300,7 +300,7 @@ if domain_selector == "Case 1: Core Payments":
         # ==========================================
         # CASE STUDY 6: INSURANCE INGESTION
         # ==========================================
-        elif domain_selector == "Case 6: Insurance Ingestion":
+elif domain_selector == "Case 6: Insurance Ingestion":
             sub_df = slice_dataframe(dfs['map_insurance'])
             
             if sub_df.empty:
@@ -340,7 +340,7 @@ if domain_selector == "Case 1: Core Payments":
         # ==========================================
         # CASE STUDY 7: GEOGRAPHIC HOTSPOTS
         # ==========================================
-        elif domain_selector == "Case 7: Geographic Hotspots":
+elif domain_selector == "Case 7: Geographic Hotspots":
             sub_df = slice_dataframe(dfs['top_transaction'])
             
             if sub_df.empty:
@@ -379,7 +379,7 @@ if domain_selector == "Case 1: Core Payments":
         # ==========================================
         # CASE STUDY 8: USER ONBOARDING
         # ==========================================
-        elif domain_selector == "Case 8: User Onboarding":
+elif domain_selector == "Case 8: User Onboarding":
             sub_df = slice_dataframe(dfs['top_user'])
             
             if sub_df.empty:
@@ -421,7 +421,7 @@ if domain_selector == "Case 1: Core Payments":
         # ==========================================
         # CASE STUDY 9: STRATEGIC PROTECTION
         # ==========================================
-        elif domain_selector == "Case 9: Strategic Protection":
+elif domain_selector == "Case 9: Strategic Protection":
             sub_df = slice_dataframe(dfs['top_insurance'])
             
             if sub_df.empty:
