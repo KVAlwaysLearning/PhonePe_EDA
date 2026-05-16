@@ -8,7 +8,8 @@ import plotly.graph_objects as go
 # --- PAGE CONFIGURATION ---
 st.set_page_config(
     page_title="PhonePe Pulse Comprehensive Analytics Dashboard", 
-    layout="wide", 
+    layout="wide",
+    color: #5d2e8e,
     page_icon="🔮"
 )
 
