@@ -118,7 +118,7 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                     </div>""",unsafe_allow_html=True)
                     # 2. Process your Plotly visualization logic data split
                     v_data = sub_df.groupby('State')['Count'].sum().sort_values(ascending=False).reset_index()
-                    fig = px.bar(v_data, x='State', y='Count', color='Count', color_continuous_scale='purples', height=300)
+                    fig = px.bar(v_data, x='State', y='Count', color='Count', color_continuous_scale='purples', height=500)
                     # 3. Render the interactive graph canvas directly inside the working window layout
                     st.plotly_chart(fig, use_container_width=True)    
 
