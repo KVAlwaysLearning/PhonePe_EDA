@@ -104,17 +104,17 @@ for q_idx, active_tab in enumerate(quarter_tabs):
             else:
                 c1, c2, c3 = st.columns(3)
                 with c1:
-                    st.markdown("##### 1.1 Univariate: Transaction Frequency [cite: 92]")
+                    st.markdown("##### 1.1 Univariate: Transaction Frequency")
                     v_data = sub_df.groupby('State')['Total_Transactions'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(v_data, x='State', y='Total_Transactions', color='Total_Transactions', color_continuous_scale='purples')
                     st.plotly_chart(fig, use_container_width=True)
                 with c2:
-                    st.markdown("##### 1.2 Bivariate: Mix by Payment Type [cite: 92, 93]")
+                    st.markdown("##### 1.2 Bivariate: Mix by Payment Type")
                     m_data = sub_df.groupby('Type')['Total_Transactions'].sum().reset_index()
                     fig = px.pie(m_data, values='Total_Transactions', names='Type', hole=0.3, color_discrete_sequence=px.colors.sequential.RdBu)
                     st.plotly_chart(fig, use_container_width=True)
                 with c3:
-                    st.markdown("##### 1.3 Multivariate: Value Trends Over Time [cite: 93]")
+                    st.markdown("##### 1.3 Multivariate: Value Trends Over Time")
                     t_data = sub_df.groupby(['Year', 'Type'])['Total_Amount'].sum().reset_index()
                     fig = px.line(t_data, x='Year', y='Total_Amount', color='Type', markers=True)
                     st.plotly_chart(fig, use_container_width=True)
