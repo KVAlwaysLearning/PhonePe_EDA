@@ -9,7 +9,6 @@ import plotly.graph_objects as go
 st.set_page_config(
     page_title="PhonePe Pulse Comprehensive Analytics Dashboard", 
     layout="wide",
-    color: #5d2e8e,
     page_icon="🔮"
 )
 
@@ -19,6 +18,7 @@ st.markdown("""
     /* Gradient background matching PhonePe's smooth app transition tones */
     .stApp {
         background: linear-gradient(135deg, #fbf9fe 0%, #f4eefa 100%);
+        color: #5d2e8e;
     }
     
     /* Ensure your custom title container stays crisp over the new background */
@@ -113,7 +113,7 @@ def slice_dataframe(dataframe, year_col='Year', state_col='State', quarter_col='
     return working_df
 
 # --- MAIN PAGE SUBSET RENDERING ENGINE ---
-st.title("🔮 PhonePe Pulse Ecosystem Master Dashboard", color: #5d2e8e)
+st.title("🔮 PhonePe Pulse Ecosystem Master Dashboard")
 st.write(f"🔬 Evaluating Case: **{domain_selector}**")
 st.markdown("---")
         
