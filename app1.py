@@ -332,7 +332,3 @@ for q_idx, active_tab in enumerate(quarter_tabs):
 # --- GLOBAL STABLE STRATEGIC FEEDBACK LAYER ---
 st.markdown("---")
 st.caption("✔️ Production Ready Dashboard Engine v3.2.0 • Validated under 27 Core Metric Assertions.")
-
-```
-
-```
