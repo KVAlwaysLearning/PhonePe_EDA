@@ -104,17 +104,17 @@ for q_idx, active_tab in enumerate(quarter_tabs):
             else:
                 c1, c2, c3 = st.columns(3)
                 with c1:
-                    [cite_start]st.markdown("##### 1.1 Univariate: Transaction Frequency [cite: 92]")
+                    st.markdown("##### 1.1 Univariate: Transaction Frequency [cite: 92]")
                     v_data = sub_df.groupby('State')['Total_Transactions'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(v_data, x='State', y='Total_Transactions', color='Total_Transactions', color_continuous_scale='purples')
                     st.plotly_chart(fig, use_container_width=True)
                 with c2:
-                    [cite_start]st.markdown("##### 1.2 Bivariate: Mix by Payment Type [cite: 92, 93]")
+                    st.markdown("##### 1.2 Bivariate: Mix by Payment Type [cite: 92, 93]")
                     m_data = sub_df.groupby('Type')['Total_Transactions'].sum().reset_index()
                     fig = px.pie(m_data, values='Total_Transactions', names='Type', hole=0.3, color_discrete_sequence=px.colors.sequential.RdBu)
                     st.plotly_chart(fig, use_container_width=True)
                 with c3:
-                    [cite_start]st.markdown("##### 1.3 Multivariate: Value Trends Over Time [cite: 93]")
+                    st.markdown("##### 1.3 Multivariate: Value Trends Over Time [cite: 93]")
                     t_data = sub_df.groupby(['Year', 'Type'])['Total_Amount'].sum().reset_index()
                     fig = px.line(t_data, x='Year', y='Total_Amount', color='Type', markers=True)
                     st.plotly_chart(fig, use_container_width=True)
@@ -130,17 +130,17 @@ for q_idx, active_tab in enumerate(quarter_tabs):
             else:
                 c1, c2, c3 = st.columns(3)
                 with c1:
-                    [cite_start]st.markdown("##### 2.1 Univariate: Brand User Distribution [cite: 93, 94]")
+                    st.markdown("##### 2.1 Univariate: Brand User Distribution [cite: 93, 94]")
                     b_dist = sub_df.groupby('Brand')['Total_Users'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(b_dist, x='Brand', y='Total_Users', color='Brand')
                     st.plotly_chart(fig, use_container_width=True)
                 with c2:
-                    [cite_start]st.markdown("##### 2.2 Bivariate: Brand Share Stability [cite: 94]")
+                    st.markdown("##### 2.2 Bivariate: Brand Share Stability [cite: 94]")
                     s_data = sub_df.groupby(['Year', 'Brand'])['Market_Share'].mean().reset_index()
                     fig = px.line(s_data, x='Year', y='Market_Share', color='Brand', markers=True)
                     st.plotly_chart(fig, use_container_width=True)
                 with c3:
-                    [cite_start]st.markdown("##### 2.3 Multivariate: Segmented Yearly Growth [cite: 94, 95]")
+                    st.markdown("##### 2.3 Multivariate: Segmented Yearly Growth [cite: 94, 95]")
                     g_data = sub_df.groupby(['Year', 'Brand'])['Total_Users'].sum().reset_index()
                     fig = px.bar(g_data, x='Year', y='Total_Users', color='Brand', barmode='stack')
                     st.plotly_chart(fig, use_container_width=True)
@@ -156,16 +156,16 @@ for q_idx, active_tab in enumerate(quarter_tabs):
             else:
                 c1, c2, c3 = st.columns(3)
                 with c1:
-                    [cite_start]st.markdown("##### 3.1 Univariate: Policy Count Density [cite: 95]")
+                    st.markdown("##### 3.1 Univariate: Policy Count Density [cite: 95]")
                     fig = px.histogram(sub_df, x='Policy_Count', marginal='rug', color_discrete_sequence=['#ff7f0e'])
                     st.plotly_chart(fig, use_container_width=True)
                 with c2:
-                    [cite_start]st.markdown("##### 3.2 Bivariate: Cumulative Adoption by State [cite: 95, 96]")
+                    st.markdown("##### 3.2 Bivariate: Cumulative Adoption by State [cite: 95, 96]")
                     st_pols = sub_df.groupby('State')['Policy_Count'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(st_pols, x='State', y='Policy_Count', color='Policy_Count', color_continuous_scale='plasma')
                     st.plotly_chart(fig, use_container_width=True)
                 with c3:
-                    [cite_start]st.markdown("##### 3.3 Multivariate: Top 10 Premium Trends [cite: 96]")
+                    st.markdown("##### 3.3 Multivariate: Top 10 Premium Trends [cite: 96]")
                     top10_st = sub_df.groupby('State')['Premium_Amount'].sum().nlargest(10).index
                     f_df = sub_df[sub_df['State'].isin(top10_st)].groupby(['Year', 'State'])['Premium_Amount'].sum().reset_index()
                     fig = px.bar(f_df, x='Year', y='Premium_Amount', color='State', barmode='group')
@@ -182,17 +182,17 @@ for q_idx, active_tab in enumerate(quarter_tabs):
             else:
                 c1, c2, c3 = st.columns(3)
                 with c1:
-                    [cite_start]st.markdown("##### 4.1 Univariate: Market Size by State [cite: 96-100]")
+                    st.markdown("##### 4.1 Univariate: Market Size by State [cite: 96-100]")
                     st_rev = sub_df.groupby('State')['Total_Revenue'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(st_rev, x='State', y='Total_Revenue', color='Total_Revenue', color_continuous_scale='viridis')
                     st.plotly_chart(fig, use_container_width=True)
                 with c2:
-                    [cite_start]st.markdown("##### 4.2 Bivariate: National Scale Timeline [cite: 100]")
+                    st.markdown("##### 4.2 Bivariate: National Scale Timeline [cite: 100]")
                     yr_rev = sub_df.groupby('Year')['Total_Revenue'].sum().reset_index()
                     fig = px.line(yr_rev, x='Year', y='Total_Revenue', markers=True, line_shape='spline')
                     st.plotly_chart(fig, use_container_width=True)
                 with c3:
-                    [cite_start]st.markdown("##### 4.3 Multivariate: Revenue Trajectory Top 5 [cite: 100, 101]")
+                   st.markdown("##### 4.3 Multivariate: Revenue Trajectory Top 5 [cite: 100, 101]")
                     top5_rev = sub_df.groupby('State')['Total_Revenue'].sum().nlargest(5).index
                     f_df = sub_df[sub_df['State'].isin(top5_rev)].groupby(['Year', 'State'])['Total_Revenue'].sum().reset_index()
                     fig = px.line(f_df, x='Year', y='Total_Revenue', color='State', markers=True)
@@ -209,16 +209,16 @@ for q_idx, active_tab in enumerate(quarter_tabs):
             else:
                 c1, c2, c3 = st.columns(3)
                 with c1:
-                    [cite_start]st.markdown("##### 5.1 Univariate: Engagement Profile [cite: 101-104]")
+                   st.markdown("##### 5.1 Univariate: Engagement Profile [cite: 101-104]")
                     st_eng = sub_df.groupby('State')['App_Opens'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(st_eng, x='State', y='App_Opens', color='App_Opens', color_continuous_scale='oranges')
                     st.plotly_chart(fig, use_container_width=True)
                 with c2:
-                    [cite_start]st.markdown("##### 5.2 Bivariate: Base to Activity Correlation [cite: 104]")
+                    st.markdown("##### 5.2 Bivariate: Base to Activity Correlation [cite: 104]")
                     fig = px.scatter(sub_df, x='Users', y='App_Opens', opacity=0.6, trendline="ols", trendline_color_override="red")
                     st.plotly_chart(fig, use_container_width=True)
                 with c3:
-                    [cite_start]st.markdown("##### 5.3 Multivariate: Spatiotemporal Intensity [cite: 104, 105]")
+                    st.markdown("##### 5.3 Multivariate: Spatiotemporal Intensity [cite: 104, 105]")
                     h_map = sub_df.groupby(['State', 'Year'])['App_Opens'].mean().reset_index()
                     fig = px.density_heatmap(h_map, x='Year', y='State', z='App_Opens', color_continuous_scale='blues')
                     st.plotly_chart(fig, use_container_width=True)
@@ -234,17 +234,17 @@ for q_idx, active_tab in enumerate(quarter_tabs):
             else:
                 c1, c2, c3 = st.columns(3)
                 with c1:
-                    [cite_start]st.markdown("##### 6.1 Univariate: Penetration Scaler [cite: 105-108]")
+                    st.markdown("##### 6.1 Univariate: Penetration Scaler [cite: 105-108]")
                     ins_scale = sub_df.groupby('State')['Insurance_Txns'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(ins_scale, x='State', y='Insurance_Txns', color='Insurance_Txns', color_continuous_scale='magma')
                     st.plotly_chart(fig, use_container_width=True)
                 with c2:
-                    [cite_start]st.markdown("##### 6.2 Bivariate: Elite Top 15 Analysis [cite: 108]")
+                    st.markdown("##### 6.2 Bivariate: Elite Top 15 Analysis [cite: 108]")
                     top15_ins = sub_df.groupby('State')['Insurance_Txns'].sum().nlargest(15).reset_index()
                     fig = px.bar(top15_ins, x='State', y='Insurance_Txns', color_discrete_sequence=['#471354'])
                     st.plotly_chart(fig, use_container_width=True)
                 with c3:
-                    [cite_start]st.markdown("##### 6.3 Multivariate: Top 5 Quarterly Flow [cite: 108, 109]")
+                    st.markdown("##### 6.3 Multivariate: Top 5 Quarterly Flow [cite: 108, 109]")
                     top5_ins = sub_df.groupby('State')['Insurance_Txns'].sum().nlargest(5).index
                     f_df = sub_df[sub_df['State'].isin(top5_ins)].groupby(['Quarter', 'State'])['Insurance_Txns'].sum().reset_index()
                     fig = px.bar(f_df, x='Quarter', y='Insurance_Txns', color='State', barmode='group')
@@ -261,16 +261,16 @@ for q_idx, active_tab in enumerate(quarter_tabs):
             else:
                 c1, c2, c3 = st.columns(3)
                 with c1:
-                    [cite_start]st.markdown("##### 7.1 Univariate: Macro Value Hotspots [cite: 109-112]")
+                    st.markdown("##### 7.1 Univariate: Macro Value Hotspots [cite: 109-112]")
                     st_perf = sub_df.groupby('State')['Value'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(st_perf, x='State', y='Value', color='Value', color_continuous_scale='viridis')
                     st.plotly_chart(fig, use_container_width=True)
                 with c2:
-                    [cite_start]st.markdown("##### 7.2 Bivariate: Volume vs Value Velocity [cite: 112]")
+                    st.markdown("##### 7.2 Bivariate: Volume vs Value Velocity [cite: 112]")
                     fig = px.scatter(sub_df, x='Volume', y='Value', opacity=0.4, color_discrete_sequence=['green'])
                     st.plotly_chart(fig, use_container_width=True)
                 with c3:
-                    [cite_start]st.markdown("##### 7.3 Multivariate: Annual Top 10 Retention [cite: 112, 113]")
+                    st.markdown("##### 7.3 Multivariate: Annual Top 10 Retention [cite: 112, 113]")
                     top10_st = sub_df.groupby('State')['Value'].sum().nlargest(10).index
                     f_df = sub_df[sub_df['State'].isin(top10_st)].groupby(['State', 'Year'])['Value'].sum().reset_index()
                     fig = px.bar(f_df, x='State', y='Value', color='Year', barmode='group')
@@ -287,16 +287,16 @@ for q_idx, active_tab in enumerate(quarter_tabs):
             else:
                 c1, c2, c3 = st.columns(3)
                 with c1:
-                    [cite_start]st.markdown("##### 8.1 Univariate: Registration Density [cite: 113]")
+                    st.markdown("##### 8.1 Univariate: Registration Density [cite: 113]")
                     fig = px.histogram(sub_df, x='New_Registrations', nbins=20, color_discrete_sequence=['orange'])
                     st.plotly_chart(fig, use_container_width=True)
                 with c2:
-                    [cite_start]st.markdown("##### 8.2 Bivariate: Growth Velocities [cite: 113, 114]")
+                   st.markdown("##### 8.2 Bivariate: Growth Velocities [cite: 113, 114]")
                     reg_y = sub_df.groupby('Year')['New_Registrations'].sum().reset_index()
                     fig = px.bar(reg_y, x='Year', y='New_Registrations', color_discrete_sequence=['#2ca02c'])
                     st.plotly_chart(fig, use_container_width=True)
                 with c3:
-                    [cite_start]st.markdown("##### 8.3 Multivariate: Cohort Cyclicity [cite: 114]")
+                    st.markdown("##### 8.3 Multivariate: Cohort Cyclicity [cite: 114]")
                     reg_yq = sub_df.groupby(['Year', 'Quarter'])['New_Registrations'].sum().reset_index()
                     reg_yq['Quarter'] = reg_yq['Quarter'].astype(str)
                     fig = px.line(reg_yq, x='Year', y='New_Registrations', color='Quarter', markers=True)
@@ -313,16 +313,16 @@ for q_idx, active_tab in enumerate(quarter_tabs):
             else:
                 c1, c2, c3 = st.columns(3)
                 with c1:
-                    [cite_start]st.markdown("##### 9.1 Univariate: Hotspot Density Profile [cite: 114]")
+                    st.markdown("##### 9.1 Univariate: Hotspot Density Profile [cite: 114]")
                     fig = px.histogram(sub_df, x='Insurance_Count', marginal='violin', nbins=20)
                     st.plotly_chart(fig, use_container_width=True)
                 with c2:
-                    [cite_start]st.markdown("##### 9.2 Bivariate: Volume Leaders (Top 15) [cite: 114, 115]")
+                    ]st.markdown("##### 9.2 Bivariate: Volume Leaders (Top 15) [cite: 114, 115]")
                     top15_st = sub_df.groupby('State')['Insurance_Count'].sum().sort_values(ascending=False).head(15).reset_index()
                     fig = px.bar(top15_st, x='State', y='Insurance_Count', color='Insurance_Count', color_continuous_scale='electric')
                     st.plotly_chart(fig, use_container_width=True)
                 with c3:
-                    [cite_start]st.markdown("##### 9.3 Multivariate: Quarterly Box Spreads [cite: 115, 116]")
+                    st.markdown("##### 9.3 Multivariate: Quarterly Box Spreads [cite: 115, 116]")
                     top5_st = sub_df.groupby('State')['Insurance_Count'].sum().nlargest(5).index
                     f_df = sub_df[sub_df['State'].isin(top5_st)]
                     f_df['Quarter'] = f_df['Quarter'].astype(str)
