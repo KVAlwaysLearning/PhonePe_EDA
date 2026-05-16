@@ -115,7 +115,7 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #5d2e8e; font-size: 1.2rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #000000; font-size: 1.2rem; font-family: 'Segoe UI', sans-serif;">
                     1.1 Univariate: Transaction Frequency
                     </h3></div>""",unsafe_allow_html=True)
                     # 2. Process your Plotly visualization logic data split
