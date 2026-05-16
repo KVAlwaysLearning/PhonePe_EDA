@@ -117,7 +117,7 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
                     <h3 style="margin: 0; color: #5d2e8e; font-size: 1.2rem; font-family: 'Segoe UI', sans-serif;">
                     1.1 Univariate: Transaction Frequency
-                    </h3></div>""",unsafe_allow_html=True))
+                    </h3></div>""",unsafe_allow_html=True)
                     # 2. Process your Plotly visualization logic data split
                     v_data = sub_df.groupby('State')['Count'].sum().sort_values(ascending=False).reset_index()
                     fig = px.bar(v_data, x='State', y='Count', color='Count', color_continuous_scale='purples', height=500)
