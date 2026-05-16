@@ -42,7 +42,7 @@ def load_all_pulse_tables():
 dfs = load_all_pulse_tables()
 
 # --- GLOBAL FILTER SIDEBAR CONTROL ---
-st.sidebar.image("https://www.phonepe.com/badges/PhonePe_Logo.png", width=160)
+st.sidebar.image("https://github.com/KVAlwaysLearning/PhonePe_EDA/blob/main/PhonePe_logo.png", width=160)
 st.sidebar.markdown("### Custom Dataset Subset Filtering")
 
 # 1. Multi-Select for Years
