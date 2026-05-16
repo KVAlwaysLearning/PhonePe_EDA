@@ -52,7 +52,7 @@ dfs = load_all_pulse_tables()
 
 # --- GLOBAL FILTER SIDEBAR CONTROL ---
 st.sidebar.image("https://raw.githubusercontent.com/KVAlwaysLearning/PhonePe_EDA/main/PhonePe_logo.png", width=160)
-st.sidebar.markdown("### Custom Dataset Subset Filtering", color='#5d2e8e')
+st.sidebar.markdown("### Custom Dataset Subset Filtering")
 
 # 1. Multi-Select for Years
 available_years = sorted(dfs['aggregated_transaction']['Year'].unique().astype(str).tolist(), reverse=True)
@@ -129,7 +129,7 @@ if domain_selector == "Case 1: Core Payments":
         with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     1.1 Univariate: Transaction Frequency
                     </h3></div>""",unsafe_allow_html=True)
                     # 2. Process your Plotly visualization logic data split
@@ -141,7 +141,7 @@ if domain_selector == "Case 1: Core Payments":
         with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     1.2 Bivariate: Mix by Payment Type
                     </h3></div>""",unsafe_allow_html=True)
                     m_data = sub_df.groupby('Type')['Count'].sum().reset_index()
@@ -151,7 +151,7 @@ if domain_selector == "Case 1: Core Payments":
         with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     1.3 Multivariate: Value Trends Over Time
                     </h3></div>""",unsafe_allow_html=True)
                     t_data = sub_df.groupby(['Year', 'Type'])['Amount'].sum().reset_index()
@@ -171,7 +171,7 @@ elif domain_selector == "Case 2: Hardware Ecosystem":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     2.1 Univariate: Brand User Distribution
                     </h3></div>""",unsafe_allow_html=True)
                     b_dist = sub_df.groupby('Brand')['Count'].sum().sort_values(ascending=False).reset_index()
@@ -182,7 +182,7 @@ elif domain_selector == "Case 2: Hardware Ecosystem":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     2.2 Bivariate: Brand Market Share Stability
                     </h3></div>""",unsafe_allow_html=True)
                     s_data = sub_df.groupby(['Year', 'Brand'])['Percentage'].mean().reset_index()
@@ -192,7 +192,7 @@ elif domain_selector == "Case 2: Hardware Ecosystem":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     2.3 Multivariate: Segmented Yearly Growth
                     </h3></div>""",unsafe_allow_html=True)
                     g_data = sub_df.groupby(['Year', 'Brand'])['Count'].sum().reset_index()
@@ -211,7 +211,7 @@ elif domain_selector == "Case 3: Base Insurance":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     3.1 Univariate: Policy Count Density
                     </h3></div>""",unsafe_allow_html=True)
                     fig = px.histogram(sub_df, x='Count', marginal='rug', color_discrete_sequence=['#ff7f0e'], height=500)
@@ -220,7 +220,7 @@ elif domain_selector == "Case 3: Base Insurance":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     3.2 Bivariate: Cumulative Adoption by State
                     </h3></div>""",unsafe_allow_html=True)
                     st_pols = sub_df.groupby('State')['Count'].sum().sort_values(ascending=False).reset_index()
@@ -230,7 +230,7 @@ elif domain_selector == "Case 3: Base Insurance":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     3.3 Multivariate: Top 10 Premium Trends
                     </h3></div>""",unsafe_allow_html=True)
                     top10_st = sub_df.groupby('State')['Amount'].sum().nlargest(10).index
@@ -250,7 +250,7 @@ elif domain_selector == "Case 4: Market Expansion":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     4.1 Univariate: Market Size by State
                     </h3></div>""",unsafe_allow_html=True)
                     st_rev = sub_df.groupby('State')['Amount'].sum().sort_values(ascending=False).reset_index()
@@ -260,7 +260,7 @@ elif domain_selector == "Case 4: Market Expansion":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     4.2 Bivariate: National Scale Timeline
                     </h3></div>""",unsafe_allow_html=True)
                     yr_rev = sub_df.groupby('Year')['Amount'].sum().reset_index()
@@ -270,7 +270,7 @@ elif domain_selector == "Case 4: Market Expansion":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     4.3 Multivariate: Revenue Trajectory Top 5
                     </h3></div>""",unsafe_allow_html=True)
                     top5_rev = sub_df.groupby('State')['Amount'].sum().nlargest(5).index
@@ -297,7 +297,7 @@ elif domain_selector == "Case 5: Platform Engagement":
                     with st.container():
                         st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                         box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                        <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                        <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                         5.1 Univariate: Engagement Profile
                         </h3></div>""",unsafe_allow_html=True)
                         st_eng = sub_df.groupby('State')[eng_col].sum().sort_values(ascending=False).reset_index()
@@ -307,7 +307,7 @@ elif domain_selector == "Case 5: Platform Engagement":
                     with st.container():
                         st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                         box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                        <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                        <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                         5.2 Bivariate: Regional Distribution Over Time
                         </h3></div>""",unsafe_allow_html=True)
                         yr_eng = sub_df.groupby('Year')[eng_col].sum().reset_index()
@@ -317,7 +317,7 @@ elif domain_selector == "Case 5: Platform Engagement":
                     with st.container():
                         st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                         box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                        <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                        <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                         5.3 Multivariate: Spatiotemporal Intensity
                         </h3></div>""",unsafe_allow_html=True)
                         h_map = sub_df.groupby(['State', 'Year'])[eng_col].mean().reset_index()
@@ -336,7 +336,7 @@ elif domain_selector == "Case 6: Insurance Ingestion":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     6.1 Univariate: Penetration Scaler
                     </h3></div>""",unsafe_allow_html=True)
                     ins_scale = sub_df.groupby('State')['Count'].sum().sort_values(ascending=False).reset_index()
@@ -346,7 +346,7 @@ elif domain_selector == "Case 6: Insurance Ingestion":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     6.2 Bivariate: Elite Top 15 Analysis
                     </h3></div>""",unsafe_allow_html=True)
                     top15_ins = sub_df.groupby('State')['Count'].sum().nlargest(15).reset_index()
@@ -356,7 +356,7 @@ elif domain_selector == "Case 6: Insurance Ingestion":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     6.3 Multivariate: Top 5 Quarterly Flow
                     </h3></div>""",unsafe_allow_html=True)
                     top5_ins = sub_df.groupby('State')['Count'].sum().nlargest(5).index
@@ -376,7 +376,7 @@ elif domain_selector == "Case 7: Geographic Hotspots":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     7.1 Univariate: Macro Value Hotspots
                     </h3></div>""",unsafe_allow_html=True)
                     st_perf = sub_df.groupby('State')['Amount'].sum().sort_values(ascending=False).reset_index()
@@ -386,7 +386,7 @@ elif domain_selector == "Case 7: Geographic Hotspots":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     7.2 Bivariate: Volume vs Value Velocity
                     </h3></div>""",unsafe_allow_html=True)
                     fig = px.scatter(sub_df, x='Count', y='Amount', opacity=0.4, color_discrete_sequence=['green'], height=500)
@@ -395,7 +395,7 @@ elif domain_selector == "Case 7: Geographic Hotspots":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     7.3 Multivariate: Annual Top 10 Retention
                     </h3></div>""",unsafe_allow_html=True)
                     top10_st = sub_df.groupby('State')['Amount'].sum().nlargest(10).index
@@ -418,7 +418,7 @@ elif domain_selector == "Case 8: User Onboarding":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     8.1 Univariate: Registration Density
                     </h3></div>""",unsafe_allow_html=True)
                     fig = px.histogram(sub_df, x=user_count_col, nbins=20, color_discrete_sequence=['orange'], height=500)
@@ -427,7 +427,7 @@ elif domain_selector == "Case 8: User Onboarding":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     8.2 Bivariate: Growth Velocities
                     </h3></div>""",unsafe_allow_html=True)
                     reg_y = sub_df.groupby('Year')[user_count_col].sum().reset_index()
@@ -437,7 +437,7 @@ elif domain_selector == "Case 8: User Onboarding":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     8.3 Multivariate: Cohort Cyclicity
                     </h3></div>""",unsafe_allow_html=True)
                     reg_yq = sub_df.groupby(['Year', 'Quarter'])[user_count_col].sum().reset_index()
@@ -457,7 +457,7 @@ elif domain_selector == "Case 9: Strategic Protection":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     9.1 Univariate: Hotspot Density Profile
                     </h3></div>""",unsafe_allow_html=True)
                     fig = px.histogram(sub_df, x='Count', marginal='violin', nbins=20, height=500)
@@ -466,7 +466,7 @@ elif domain_selector == "Case 9: Strategic Protection":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0 font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     9.2 Bivariate: Volume Leaders (Top 15)
                     </h3></div>""",unsafe_allow_html=True)
                     top15_st = sub_df.groupby('State')['Count'].sum().sort_values(ascending=False).head(15).reset_index()
@@ -476,7 +476,7 @@ elif domain_selector == "Case 9: Strategic Protection":
                 with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
-                    <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
+                    <h3 style="margin: 0; color: #5d2e8e0; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
                     9.3 Multivariate: Quarterly Box Spreads
                     </h3></div>""",unsafe_allow_html=True)
                     top5_st = sub_df.groupby('State')['Count'].sum().nlargest(5).index
