@@ -58,23 +58,23 @@ st.sidebar.markdown("<span style='color: #9d56f7; font-weight: bold; font-size: 
 # 1. Multi-Select for Years
 available_years = sorted(dfs['aggregated_transaction']['Year'].unique().astype(str).tolist(), reverse=True)
 # 1. Render the beautiful purple label first using markdown
-st.sidebar.markdown("<span style='color: #9d56f7; font-weight: bold;'>Select Years Cohort</span>", unsafe_allow_html=True)
+st.sidebar.markdown("<span style='color: #5d2e8e; font-weight: bold;'>Select Years Cohort</span>", unsafe_allow_html=True)
 
-# 2. Render the multiselect widget immediately below it with an empty label ""
-selected_years = st.sidebar.multiselect(
-    label="", 
-    options=["ALL"] + available_years, 
-    default=["ALL"]
-)
+# Render the multiselect widget immediately below it with an empty label ""
+selected_years = st.sidebar.multiselect(label="", options=["ALL"] + available_years, default=["ALL"])
+
 # 2. Multi-Select for States
 available_states = sorted(dfs['aggregated_transaction']['State'].unique().tolist())
 if "India" in available_states: 
     available_states.remove("India") 
-selected_states = st.sidebar.multiselect("Select States/UTs Cohort", options=["ALL"] + available_states, default=["ALL"])
+    
+st.sidebar.markdown("<span style='color: #5d2e8e; font-weight: bold;'>Select States/UTs Cohort</span>", unsafe_allow_html=True)
+selected_states = st.sidebar.multiselect(label="", options=["ALL"] + available_states, default=["ALL"])
 
 # 3. Multi-Select for Quarters
 available_quarters = ["1", "2", "3", "4"]
-selected_quarters = st.sidebar.multiselect("Select Quarters Cohort", options=["ALL"] + available_quarters, default=["ALL"])
+st.sidebar.markdown("<span style='color: #5d2e8e; font-weight: bold;'>Select Quarters Cohort</span>", unsafe_allow_html=True)
+selected_quarters = st.sidebar.multiselect(label="", options=["ALL"] + available_quarters, default=["ALL"])
 
 st.sidebar.markdown("---")
 
