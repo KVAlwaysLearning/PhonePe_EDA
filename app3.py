@@ -41,7 +41,7 @@ def load_all_pulse_tables():
 
 dfs = load_all_pulse_tables()
 
-# --- GLOBAL FILTER SIDEBAR CONTROL (UPDATED FOR CUSTOM MULTI-SETS) ---
+# --- GLOBAL FILTER SIDEBAR CONTROL ---
 st.sidebar.image("https://www.phonepe.com/badges/PhonePe_Logo.png", width=160)
 st.sidebar.markdown("### Custom Dataset Subset Filtering")
 
@@ -52,12 +52,30 @@ selected_years = st.sidebar.multiselect("Select Years Cohort", options=["ALL"] +
 # 2. Multi-Select for States
 available_states = sorted(dfs['aggregated_transaction']['State'].unique().tolist())
 if "India" in available_states: 
-    available_states.remove("India") # Prevent selection of pre-aggregated national totals
+    available_states.remove("India") 
 selected_states = st.sidebar.multiselect("Select States/UTs Cohort", options=["ALL"] + available_states, default=["ALL"])
 
-# 3. Multi-Select for Quarters (Moved out of tabs to allow custom grouping like Q1+Q2)
+# 3. Multi-Select for Quarters
 available_quarters = ["1", "2", "3", "4"]
 selected_quarters = st.sidebar.multiselect("Select Quarters Cohort", options=["ALL"] + available_quarters, default=["ALL"])
+
+st.sidebar.markdown("---")
+
+# 🔴 ADD THIS BLOCK BACK INTO YOUR SIDEBAR TO FIX THE NAMEERROR:
+domain_selector = st.sidebar.radio(
+    "Select Analysis Core Domain",
+    [
+        "Case 1: Core Payments",
+        "Case 2: Hardware Ecosystem",
+        "Case 3: Base Insurance",
+        "Case 4: Market Expansion",
+        "Case 5: Platform Engagement",
+        "Case 6: Insurance Ingestion",
+        "Case 7: Geographic Hotspots",
+        "Case 8: User Onboarding",
+        "Case 9: Strategic Protection"
+    ]
+)
 
 # --- OPTIMIZED MULTI-SELECT DATA FILTERING ROUTINE ---
 def slice_dataframe(dataframe, year_col='Year', state_col='State', quarter_col='Quarter'):
