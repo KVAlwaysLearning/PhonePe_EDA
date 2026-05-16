@@ -93,13 +93,13 @@ st.markdown("---")
         # CASE STUDY 1: CORE PAYMENTS
         # ==========================================
         # No more tab loops needed! The dataframe slice dynamically scales to any custom cohort.
-        if domain_selector == "Case 1: Core Payments":
-          sub_df = slice_dataframe(dfs['aggregated_transaction'])
-          if sub_df.empty:
+if domain_selector == "Case 1: Core Payments":
+    sub_df = slice_dataframe(dfs['aggregated_transaction'])
+    if sub_df.empty:
             st.warning("No data payload matches the selected combination of filters.")
-          else:
+    else:
         # Your clean vertical layout remains untouched
-            with st.container():
+        with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
                     <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
@@ -111,7 +111,7 @@ st.markdown("---")
                     # 3. Render the interactive graph canvas directly inside the working window layout
                     st.plotly_chart(fig, use_container_width=True)    
 
-                with st.container():
+        with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
                     <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
@@ -121,7 +121,7 @@ st.markdown("---")
                     fig = px.pie(m_data, values='Count', names='Type', hole=0.3, height=500)
                     st.plotly_chart(fig, use_container_width=True)       
 
-                with st.container():
+        with st.container():
                     st.markdown(f"""<div style="background-color: #ffffff; padding: 10px 18px; border-radius: 8px; border: 1px solid #e6ebf1; 
                     box-shadow: 0 2px 4px rgba(0,0,0,0.02); margin-bottom: 12px;">
                     <h3 style="margin: 0; color: #000000; font-size: 1.5rem; font-family: 'Segoe UI', sans-serif;">
