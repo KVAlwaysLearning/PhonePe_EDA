@@ -53,12 +53,12 @@ dfs = load_all_pulse_tables()
 
 # --- GLOBAL FILTER SIDEBAR CONTROL ---
 st.sidebar.image("https://raw.githubusercontent.com/KVAlwaysLearning/PhonePe_EDA/main/PhonePe_logo.png", width=160)
-st.sidebar.markdown("<span style='color: #9d56f7; font-weight: bold; font-size: 1.3rem;'>Custom Dataset Subset Filtering</span>", unsafe_allow_html=True)
+st.sidebar.markdown("<span style='color: #5d2e8e; font-weight: bold; font-size: 1.3rem;'>Custom Dataset Subset Filtering</span>", unsafe_allow_html=True)
 
 # 1. Multi-Select for Years
 available_years = sorted(dfs['aggregated_transaction']['Year'].unique().astype(str).tolist(), reverse=True)
 # 1. Render the beautiful purple label first using markdown
-st.sidebar.markdown("<span style='color: #5d2e8e; font-weight: bold;'>Select Years Cohort</span>", unsafe_allow_html=True)
+st.sidebar.markdown("<span style='color: #9d56f7; font-weight: bold;'>Select Years Cohort</span>", unsafe_allow_html=True)
 
 # Render the multiselect widget immediately below it with an empty label ""
 selected_years = st.sidebar.multiselect(label="", options=["ALL"] + available_years, default=["ALL"])
@@ -68,12 +68,12 @@ available_states = sorted(dfs['aggregated_transaction']['State'].unique().tolist
 if "India" in available_states: 
     available_states.remove("India") 
     
-st.sidebar.markdown("<span style='color: #5d2e8e; font-weight: bold;'>Select States/UTs Cohort</span>", unsafe_allow_html=True)
+st.sidebar.markdown("<span style='color: #9d56f7; font-weight: bold;'>Select States/UTs Cohort</span>", unsafe_allow_html=True)
 selected_states = st.sidebar.multiselect(label="", options=["ALL"] + available_states, default=["ALL"])
 
 # 3. Multi-Select for Quarters
 available_quarters = ["1", "2", "3", "4"]
-st.sidebar.markdown("<span style='color: #5d2e8e; font-weight: bold;'>Select Quarters Cohort</span>", unsafe_allow_html=True)
+st.sidebar.markdown("<span style='color: #9d56f7; font-weight: bold;'>Select Quarters Cohort</span>", unsafe_allow_html=True)
 selected_quarters = st.sidebar.multiselect(label="", options=["ALL"] + available_quarters, default=["ALL"])
 
 st.sidebar.markdown("---")
