@@ -67,15 +67,28 @@ domain_selector = st.sidebar.radio(
     ]
 )
 
-# --- BULLETPROOF DATA FILTERING ROUTINE ---
+# --- OPTIMIZED DATA FILTERING ROUTINE ---
 def slice_dataframe(dataframe, year_col='Year', state_col='State', target_q="ALL"):
     working_df = dataframe.copy()
+    
+    # 1. Handle Year Filter
     if selected_year != "ALL" and year_col in working_df.columns:
         working_df = working_df[working_df[year_col] == int(selected_year)]
-    if selected_state != "ALL" and state_col in working_df.columns:
-        working_df = working_df[working_df[state_col] == selected_state]
+        
+    # 2. Handle State Filter (The Fix)
+    if state_col in working_df.columns:
+        if selected_state != "ALL":
+            # If a specific state is chosen, filter down to just that state
+            working_df = working_df[working_df[state_col] == selected_state]
+        else:
+            # If "ALL" states are chosen, exclude the pre-aggregated 'India' rows 
+            # so individual states don't get squished by the massive national total
+            working_df = working_df[working_df[state_col] != "India"]
+            
+    # 3. Handle Quarter Filter
     if target_q != "ALL" and 'Quarter' in working_df.columns:
         working_df = working_df[working_df['Quarter'] == int(target_q)]
+        
     return working_df
 
 # --- HEADER FRAME ---
