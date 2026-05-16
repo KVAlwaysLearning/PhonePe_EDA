@@ -338,27 +338,30 @@ for q_idx, active_tab in enumerate(quarter_tabs):
             if sub_df.empty:
                 st.warning("Onboarding profiles data row empty.")
             else:
+                # Dynamic column mapping to detect your exact user count label
+                user_count_col = 'Count' if 'Count' in sub_df.columns else ('RegisteredUsers' if 'RegisteredUsers' in sub_df.columns else sub_df.columns[-1])
+                
                 with st.container():
                     st.markdown('<div class="chart-container">', unsafe_allow_html=True)
                     st.markdown("### 8.1 Univariate: Registration Density")
-                    fig = px.histogram(sub_df, x='Count', nbins=20, color_discrete_sequence=['orange'], height=500)
+                    fig = px.histogram(sub_df, x=user_count_col, nbins=20, color_discrete_sequence=['orange'], height=500)
                     st.plotly_chart(fig, use_container_width=True)
                     st.markdown('</div>', unsafe_allow_html=True)
 
                 with st.container():
                     st.markdown('<div class="chart-container">', unsafe_allow_html=True)
                     st.markdown("### 8.2 Bivariate: Growth Velocities")
-                    reg_y = sub_df.groupby('Year')['Count'].sum().reset_index()
-                    fig = px.bar(reg_y, x='Year', y='Count', color_discrete_sequence=['#2ca02c'], height=500)
+                    reg_y = sub_df.groupby('Year')[user_count_col].sum().reset_index()
+                    fig = px.bar(reg_y, x='Year', y=user_count_col, color_discrete_sequence=['#2ca02c'], height=500)
                     st.plotly_chart(fig, use_container_width=True)
                     st.markdown('</div>', unsafe_allow_html=True)
 
                 with st.container():
                     st.markdown('<div class="chart-container">', unsafe_allow_html=True)
                     st.markdown("### 8.3 Multivariate: Cohort Cyclicity")
-                    reg_yq = sub_df.groupby(['Year', 'Quarter'])['Count'].sum().reset_index()
+                    reg_yq = sub_df.groupby(['Year', 'Quarter'])[user_count_col].sum().reset_index()
                     reg_yq['Quarter'] = reg_yq['Quarter'].astype(str)
-                    fig = px.line(reg_yq, x='Year', y='Count', color='Quarter', markers=True, height=500)
+                    fig = px.line(reg_yq, x='Year', y=user_count_col, color='Quarter', markers=True, height=500)
                     st.plotly_chart(fig, use_container_width=True)
                     st.markdown('</div>', unsafe_allow_html=True)
 
