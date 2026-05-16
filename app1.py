@@ -294,7 +294,7 @@ for q_idx, active_tab in enumerate(quarter_tabs):
                    st.markdown("##### 8.2 Bivariate: Growth Velocities [cite: 113, 114]")
                    reg_y = sub_df.groupby('Year')['New_Registrations'].sum().reset_index()
                    fig = px.bar(reg_y, x='Year', y='New_Registrations', color_discrete_sequence=['#2ca02c'])
-                    st.plotly_chart(fig, use_container_width=True)
+                   st.plotly_chart(fig, use_container_width=True)
                 with c3:
                    st.markdown("##### 8.3 Multivariate: Cohort Cyclicity [cite: 114]")
                    reg_yq = sub_df.groupby(['Year', 'Quarter'])['New_Registrations'].sum().reset_index()
