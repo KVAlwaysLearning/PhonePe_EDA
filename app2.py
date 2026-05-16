@@ -232,30 +232,36 @@ for q_idx, active_tab in enumerate(quarter_tabs):
             if sub_df.empty:
                 st.warning("Empty matrix slice caught.")
             else:
-                with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 5.1 Univariate: Engagement Profile")
-                    st_eng = sub_df.groupby('State')['Count'].sum().sort_values(ascending=False).reset_index()
-                    fig = px.bar(st_eng, x='State', y='Count', color='Count', color_continuous_scale='oranges', height=500)
-                    st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
+                # Dynamic column mapping to support both 'Count' or 'AppOpens' / 'RegisteredUsers' configurations
+                eng_col = 'AppOpens' if 'AppOpens' in sub_df.columns else ('Count' if 'Count' in sub_df.columns else None)
+                user_col = 'RegisteredUsers' if 'RegisteredUsers' in sub_df.columns else ('Users' if 'Users' in sub_df.columns else None)
+                
+                if not eng_col:
+                    st.error("Could not find an engagement column (Count or AppOpens) in map_user dataset.")
+                else:
+                    with st.container():
+                        st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                        st.markdown("### 5.1 Univariate: Engagement Profile")
+                        st_eng = sub_df.groupby('State')[eng_col].sum().sort_values(ascending=False).reset_index()
+                        fig = px.bar(st_eng, x='State', y=eng_col, color=eng_col, color_continuous_scale='oranges', height=500)
+                        st.plotly_chart(fig, use_container_width=True)
+                        st.markdown('</div>', unsafe_allow_html=True)
 
-                with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 5.2 Bivariate: Regional Distribution Over Time")
-                    yr_eng = sub_df.groupby('Year')['Count'].sum().reset_index()
-                    fig = px.bar(yr_eng, x='Year', y='Count', height=500)
-                    st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
+                    with st.container():
+                        st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                        st.markdown("### 5.2 Bivariate: Regional Distribution Over Time")
+                        yr_eng = sub_df.groupby('Year')[eng_col].sum().reset_index()
+                        fig = px.bar(yr_eng, x='Year', y=eng_col, height=500)
+                        st.plotly_chart(fig, use_container_width=True)
+                        st.markdown('</div>', unsafe_allow_html=True)
 
-                with st.container():
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    st.markdown("### 5.3 Multivariate: Spatiotemporal Intensity")
-                    h_map = sub_df.groupby(['State', 'Year'])['Count'].mean().reset_index()
-                    fig = px.density_heatmap(h_map, x='Year', y='State', z='Count', color_continuous_scale='blues', height=500)
-                    st.plotly_chart(fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
-
+                    with st.container():
+                        st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                        st.markdown("### 5.3 Multivariate: Spatiotemporal Intensity")
+                        h_map = sub_df.groupby(['State', 'Year'])[eng_col].mean().reset_index()
+                        fig = px.density_heatmap(h_map, x='Year', y='State', z=eng_col, color_continuous_scale='blues', height=500)
+                        st.plotly_chart(fig, use_container_width=True)
+                        st.markdown('</div>', unsafe_allow_html=True)
         # ==========================================
         # CASE STUDY 6: INSURANCE INGESTION
         # ==========================================
