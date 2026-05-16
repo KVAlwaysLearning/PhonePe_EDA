@@ -57,7 +57,7 @@ st.sidebar.markdown("<span style='color: #9d56f7; font-weight: bold; font-size: 
 
 # 1. Multi-Select for Years
 available_years = sorted(dfs['aggregated_transaction']['Year'].unique().astype(str).tolist(), reverse=True)
-selected_years = st.sidebar.multiselect("<span style='color: #9d56f7; font-weight: bold;> Select Years Cohort", options=["ALL"] + available_years, default=["ALL"]</span>", unsafe_allow_html=True)
+selected_years = st.sidebar.multiselect("<span style='color: #9d56f7; font-weight: bold;> Select Years Cohort</span>", unsafe_allow_html=True, options=["ALL"] + available_years, default=["ALL"])
 
 # 2. Multi-Select for States
 available_states = sorted(dfs['aggregated_transaction']['State'].unique().tolist())
