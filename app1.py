@@ -44,7 +44,7 @@ def load_all_pulse_tables():
 dfs = load_all_pulse_tables()
 
 # --- GLOBAL FILTER SIDEBAR CONTROL ---
-st.sidebar.image("[https://www.phonepe.com/badges/PhonePe_Logo.png](https://www.phonepe.com/badges/PhonePe_Logo.png)", width=160)
+st.sidebar.image("https://www.phonepe.com/badges/PhonePe_Logo.png", width=160)
 st.sidebar.markdown("### National Context Filtering")
 
 # Building global selectors supporting dynamic subset extraction with "ALL" cross-filtering
