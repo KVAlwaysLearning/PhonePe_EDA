@@ -42,7 +42,7 @@ def load_all_pulse_tables():
 dfs = load_all_pulse_tables()
 
 # --- GLOBAL FILTER SIDEBAR CONTROL ---
-st.sidebar.image("[https://www.phonepe.com/badges/PhonePe_Logo.png](https://www.phonepe.com/badges/PhonePe_Logo.png)", width=160)
+st.sidebar.image("https://www.phonepe.com/badges/PhonePe_Logo.png", width=160)
 st.sidebar.markdown("### National Context Filtering")
 
 available_years = ["ALL"] + sorted(dfs['aggregated_transaction']['Year'].unique().astype(str).tolist(), reverse=True)
