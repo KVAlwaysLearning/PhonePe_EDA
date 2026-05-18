@@ -10,8 +10,7 @@ This project is an end-to-end data product designed to solve the **"Cold Start" 
 
 The system operates in two core environments:
 
-1. 
-**The Backend Engineering Pipeline (Google Colab):** Automatically traverses, extracts, sanitizes, and maps complex multi-tiered JSON file systems into highly optimized relational sheets.
+1. **The Backend Engineering Pipeline (Google Colab):** Automatically traverses, extracts, sanitizes, and maps complex multi-tiered JSON file systems into highly optimized relational sheets.
 
 
 2. **The Analytics Interface (Streamlit Application):** Consumes the structured data layer to serve dynamic vertical scrolling canvas cards, utilizing high-contrast visual hierarchies to surface micro-retail habits, hardware dominance, and geographic adoption patterns.
