@@ -28,20 +28,16 @@ Dataset Repo Link: https://github.com/PhonePe/pulse
 
 The ingestion infrastructure systematically flattens and structures massive, nested directory trees ordered by calendar years, quarters, and regional states.
 
-* 
-**Environment Initialization:** Binds operating system path utilities (`os`) and initializes vector memory engines (`Pandas`) to manage massive metadata object trees in memory safely.
+* **Environment Initialization:** Binds operating system path utilities (`os`) and initializes vector memory engines (`Pandas`) to manage massive metadata object trees in memory safely.
 
 
-* 
-**Traversals & Matrix Splitting:** Utilizes an aggressive `os.walk` path engine to drill into deep folder nests and isolate metrics across three highly discrete vectors: **Aggregated**, **Map**, and **Top** characteristics.
+* **Traversals & Matrix Splitting:** Utilizes an aggressive `os.walk` path engine to drill into deep folder nests and isolate metrics across three highly discrete vectors: **Aggregated**, **Map**, and **Top** characteristics.
 
 
-* 
-**Nested Flattening & Serialization:** Extracts hidden dictionary attributes from raw JSON objects, compiling the flattened linear results into **nine distinct relational tables** exported as optimized CSV sheets (the unified Single Source of Truth).
+* **Nested Flattening & Serialization:** Extracts hidden dictionary attributes from raw JSON objects, compiling the flattened linear results into **nine distinct relational tables** exported as optimized CSV sheets (the unified Single Source of Truth).
 
 
-* 
-**Sanitation Layer:** Eliminates statistical distortion and duplication by actively purging generic national entries (such as those under the explicit state designation `"India"`) while enforcing strict datatype coercion to ensure pristine computational floats and integers.
+* **Sanitation Layer:** Eliminates statistical distortion and duplication by actively purging generic national entries (such as those under the explicit state designation `"India"`) while enforcing strict datatype coercion to ensure pristine computational floats and integers.
 
 
 
@@ -58,8 +54,7 @@ The frontend layer bypasses cramped, multi-column grid dashboards in favor of a 
 
 The application analyzes real-world case studies to drive operational strategies:
 
-* 
-**Core Payments Analysis:** Surfaces a profound behavioral transition where early platform volume was dominated by peer-to-peer (P2P) transfers, but everyday micro-retail shopping habits are now compounding at a far superior velocity via Merchant Payments.
+* **Core Payments Analysis:** Surfaces a profound behavioral transition where early platform volume was dominated by peer-to-peer (P2P) transfers, but everyday micro-retail shopping habits are now compounding at a far superior velocity via Merchant Payments.
 
 
 * **Hardware Ecosystem Mapping:** Exposes a stark market oligopoly where Android budget device manufacturers (specifically Xiaomi, Samsung, and Vivo) command the absolute majority of the national subscriber base. This informs product engineers to aggressively prioritize memory optimization to minimize application churn.
