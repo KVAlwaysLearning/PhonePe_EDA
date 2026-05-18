@@ -21,7 +21,7 @@ st.markdown("""
         color: #5d2e8e;
     }
     
-    /* Ensure your custom title container stays crisp over the new background */
+    /* Custom title container stays crisp over the new background */
     .chart-container { 
         background-color: #ffffff; 
         padding: 25px; 
@@ -78,7 +78,7 @@ selected_quarters = st.sidebar.multiselect(label="", options=["ALL"] + available
 
 st.sidebar.markdown("---")
 
-# 🔴 ADD THIS BLOCK BACK INTO YOUR SIDEBAR TO FIX THE NAMEERROR:
+# 🔴 SIDEBAR RADIO OPTIONS FOR QUERY BUSINESS CASES:
 domain_selector = st.sidebar.radio(
     "Select Analysis Core Domain",
     [
